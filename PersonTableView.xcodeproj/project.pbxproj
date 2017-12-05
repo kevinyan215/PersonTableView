@@ -8,12 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		4D3D23BE1FD5B644007171A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23BD1FD5B644007171A3 /* AppDelegate.swift */; };
-		4D3D23C01FD5B644007171A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23BF1FD5B644007171A3 /* ViewController.swift */; };
+		4D3D23C01FD5B644007171A3 /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23BF1FD5B644007171A3 /* ListViewController.swift */; };
 		4D3D23C31FD5B644007171A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D23C11FD5B644007171A3 /* Main.storyboard */; };
 		4D3D23C51FD5B644007171A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D23C41FD5B644007171A3 /* Assets.xcassets */; };
 		4D3D23C81FD5B644007171A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D3D23C61FD5B644007171A3 /* LaunchScreen.storyboard */; };
 		4D3D23D31FD5B644007171A3 /* PersonTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23D21FD5B644007171A3 /* PersonTableViewTests.swift */; };
 		4D3D23DE1FD5B644007171A3 /* PersonTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23DD1FD5B644007171A3 /* PersonTableViewUITests.swift */; };
+		4D3D23EE1FD5BA57007171A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23ED1FD5BA57007171A3 /* Person.swift */; };
+		4DF96E291FD5E10000D26869 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF96E281FD5E10000D26869 /* PersonTableViewCell.xib */; };
+		4DF96E2D1FD628AD00D26869 /* PersonSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */; };
+		4DF96E301FD629B000D26869 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF96E2F1FD629B000D26869 /* DataModel.swift */; };
+		4DF96E321FD62E7D00D26869 /* PersonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF96E311FD62E7D00D26869 /* PersonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +41,7 @@
 /* Begin PBXFileReference section */
 		4D3D23BA1FD5B644007171A3 /* PersonTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PersonTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D23BD1FD5B644007171A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		4D3D23BF1FD5B644007171A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4D3D23BF1FD5B644007171A3 /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		4D3D23C21FD5B644007171A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4D3D23C41FD5B644007171A3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D3D23C71FD5B644007171A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +52,11 @@
 		4D3D23D91FD5B644007171A3 /* PersonTableViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PersonTableViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D3D23DD1FD5B644007171A3 /* PersonTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewUITests.swift; sourceTree = "<group>"; };
 		4D3D23DF1FD5B644007171A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D3D23ED1FD5BA57007171A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		4DF96E281FD5E10000D26869 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
+		4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSignUpViewController.swift; sourceTree = "<group>"; };
+		4DF96E2F1FD629B000D26869 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
+		4DF96E311FD62E7D00D26869 /* PersonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +108,9 @@
 			isa = PBXGroup;
 			children = (
 				4D3D23BD1FD5B644007171A3 /* AppDelegate.swift */,
-				4D3D23BF1FD5B644007171A3 /* ViewController.swift */,
+				4DF96E2E1FD6291900D26869 /* Model */,
+				4DF96E2B1FD627F000D26869 /* ViewControllers */,
+				4DF96E2A1FD5E10600D26869 /* View */,
 				4D3D23C11FD5B644007171A3 /* Main.storyboard */,
 				4D3D23C41FD5B644007171A3 /* Assets.xcassets */,
 				4D3D23C61FD5B644007171A3 /* LaunchScreen.storyboard */,
@@ -123,6 +135,33 @@
 				4D3D23DF1FD5B644007171A3 /* Info.plist */,
 			);
 			path = PersonTableViewUITests;
+			sourceTree = "<group>";
+		};
+		4DF96E2A1FD5E10600D26869 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4DF96E281FD5E10000D26869 /* PersonTableViewCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4DF96E2B1FD627F000D26869 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				4D3D23BF1FD5B644007171A3 /* ListViewController.swift */,
+				4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */,
+				4DF96E311FD62E7D00D26869 /* PersonTableViewCell.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		4DF96E2E1FD6291900D26869 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4D3D23ED1FD5BA57007171A3 /* Person.swift */,
+				4DF96E2F1FD629B000D26869 /* DataModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D3D23C81FD5B644007171A3 /* LaunchScreen.storyboard in Resources */,
+				4DF96E291FD5E10000D26869 /* PersonTableViewCell.xib in Resources */,
 				4D3D23C51FD5B644007171A3 /* Assets.xcassets in Resources */,
 				4D3D23C31FD5B644007171A3 /* Main.storyboard in Resources */,
 			);
@@ -259,7 +299,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D3D23C01FD5B644007171A3 /* ViewController.swift in Sources */,
+				4DF96E301FD629B000D26869 /* DataModel.swift in Sources */,
+				4D3D23EE1FD5BA57007171A3 /* Person.swift in Sources */,
+				4D3D23C01FD5B644007171A3 /* ListViewController.swift in Sources */,
+				4DF96E321FD62E7D00D26869 /* PersonTableViewCell.swift in Sources */,
+				4DF96E2D1FD628AD00D26869 /* PersonSignUpViewController.swift in Sources */,
 				4D3D23BE1FD5B644007171A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
