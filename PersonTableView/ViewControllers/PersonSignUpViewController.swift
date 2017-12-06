@@ -26,7 +26,7 @@ class PersonSignUpViewController: UIViewController {
         
         //Optional(Int) is Int, Optional(3) == 3
         guard firstName != "", lastName != "", age is Int, address != "", ssn != "", occupation != "", education != "" else {
-            print("missing input somewhere orrrr invalid age")
+            print("missing input somewhere or invalid age")
             return
         }
         performSegue(withIdentifier: "unwindToListVC", sender: nil)
