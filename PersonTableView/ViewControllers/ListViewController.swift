@@ -13,13 +13,13 @@ class ListViewController: UIViewController {
     @IBOutlet weak var createButton: UIBarButtonItem!
     var dataModel: DataModel = DataModel()
     var allowEditing = false
+    var selectedRow: Int?
+    var bundleContainer: [String:Any] = [:]
     
     @IBAction func editButtonActionSelected(_ sender: UIBarButtonItem) {
         allowEditing = !allowEditing
         tableView.setEditing(allowEditing, animated: true)
         createButton.isEnabled = tableView.isEditing ? false : true
-//        tableView.allowsMultipleSelectionDuringEditing = true
-        
     }
     
     override func viewDidLoad() {
@@ -30,22 +30,46 @@ class ListViewController: UIViewController {
         
         let personTVCellNib: UINib = UINib(nibName: "PersonTableViewCell", bundle: nil)
         tableView.register(personTVCellNib, forCellReuseIdentifier: "PersonTableViewCell")
-        
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     @IBAction func unwindToListVC(segue: UIStoryboardSegue){
         print("unwindToListVC")
-//        reloadInputViews() //from UIResponder - refresh custom input view
-//        tableView.reloadData()
+        let person = bundleContainer["person"] as! Person
+        let indexPath = bundleContainer["indexPath"] as! IndexPath
+        
+        //update model and table with the new person
+        dataModel.insert(person: person)
+        tableView.beginUpdates()
+        tableView.insertRows(at: [indexPath] , with: .automatic)
+        tableView.endUpdates()
+        tableView.reloadData() //hmmmm, good practice?
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? PersonDetailViewController {
+            dest.bundleContainer["profileImage"] = dataModel.personContainer[selectedRow!].avatar
+            dest.bundleContainer["firstName"] = dataModel.personContainer[selectedRow!].firstName
+            dest.bundleContainer["lastName"] = dataModel.personContainer[selectedRow!].lastName
+            dest.bundleContainer["age"] = String(dataModel.personContainer[selectedRow!].age)
+            dest.bundleContainer["address"] = dataModel.personContainer[selectedRow!].address
+            dest.bundleContainer["ssn"] = dataModel.personContainer[selectedRow!].SSN
+            dest.bundleContainer["occupation"] = dataModel.personContainer[selectedRow!].occupation.rawValue
+            dest.bundleContainer["education"] = dataModel.personContainer[selectedRow!].educationDegree.rawValue
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 }
 
-extension ListViewController: UITableViewDelegate {}
+extension ListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRow = indexPath.row
+        performSegue(withIdentifier: "segueToPersonDetailVC", sender: self)
+    }
+}
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +77,7 @@ extension ListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //right place to put load the nib? is this even needed? wtfffff
+        //right place to put load the nib? is this even needed?
 //        guard let cell: PersonTableViewCell = Bundle.main.loadNibNamed("PersonTableViewCell", owner: self, options: nil)?.first as? PersonTableViewCell else {
 //            print("cellForRowAt load nib error")
 //            print(Bundle.main.loadNibNamed("PersonTableViewCell", owner: self, options: nil)?.first)
@@ -71,7 +94,9 @@ extension ListViewController: UITableViewDataSource {
         reusableCell.lastNameLabel.text = dataModel.personContainer[indexPath.row].lastName
         reusableCell.ageLabel.text = String(dataModel.personContainer[indexPath.row].age)
         reusableCell.profilePicOutlet.image = dataModel.personContainer[indexPath.row].avatar
+        reusableCell.backgroundColor = indexPath.row%2 == 0 ? UIColor.green : UIColor.orange
 //        print("cellForRowAt load nib good")
+        
         return reusableCell
     }
     

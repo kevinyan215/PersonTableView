@@ -15,6 +15,7 @@
 		4D3D23D31FD5B644007171A3 /* PersonTableViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23D21FD5B644007171A3 /* PersonTableViewTests.swift */; };
 		4D3D23DE1FD5B644007171A3 /* PersonTableViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23DD1FD5B644007171A3 /* PersonTableViewUITests.swift */; };
 		4D3D23EE1FD5BA57007171A3 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D3D23ED1FD5BA57007171A3 /* Person.swift */; };
+		4DF2FC361FD7894100111237 /* PersonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF2FC351FD7894100111237 /* PersonDetailViewController.swift */; };
 		4DF96E291FD5E10000D26869 /* PersonTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4DF96E281FD5E10000D26869 /* PersonTableViewCell.xib */; };
 		4DF96E2D1FD628AD00D26869 /* PersonSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */; };
 		4DF96E301FD629B000D26869 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DF96E2F1FD629B000D26869 /* DataModel.swift */; };
@@ -53,6 +54,7 @@
 		4D3D23DD1FD5B644007171A3 /* PersonTableViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonTableViewUITests.swift; sourceTree = "<group>"; };
 		4D3D23DF1FD5B644007171A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3D23ED1FD5BA57007171A3 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		4DF2FC351FD7894100111237 /* PersonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailViewController.swift; sourceTree = "<group>"; };
 		4DF96E281FD5E10000D26869 /* PersonTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PersonTableViewCell.xib; sourceTree = "<group>"; };
 		4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonSignUpViewController.swift; sourceTree = "<group>"; };
 		4DF96E2F1FD629B000D26869 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			children = (
 				4D3D23BF1FD5B644007171A3 /* ListViewController.swift */,
 				4DF96E2C1FD628AD00D26869 /* PersonSignUpViewController.swift */,
+				4DF2FC351FD7894100111237 /* PersonDetailViewController.swift */,
 				4DF96E311FD62E7D00D26869 /* PersonTableViewCell.swift */,
 			);
 			path = ViewControllers;
@@ -304,6 +307,7 @@
 				4D3D23C01FD5B644007171A3 /* ListViewController.swift in Sources */,
 				4DF96E321FD62E7D00D26869 /* PersonTableViewCell.swift in Sources */,
 				4DF96E2D1FD628AD00D26869 /* PersonSignUpViewController.swift in Sources */,
+				4DF2FC361FD7894100111237 /* PersonDetailViewController.swift in Sources */,
 				4D3D23BE1FD5B644007171A3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -10,27 +10,27 @@ import Foundation
 import UIKit
 
 enum Occupation: String {
-    case doctor = "doctor"
-    case engineer = "engineer"
-    case artist = "artist"
-    case actor = "actor"
-    case manager = "manager"
-    case detective = "detective"
-    case nbaPlayer = "nba player"
-    case unemployed = "unemployed"
+    case doctor = "Doctor"
+    case engineer = "Engineer"
+    case artist = "Artist"
+    case actor = "Actor"
+    case manager = "Manager"
+    case detective = "Detective"
+    case nbaPlayer = "Nba Player"
+    case unemployed = "Unemployed"
 }
 
 enum EducationLevel: String {
-    case none = "none"
+    case none = "N/A"
     case bachelors = "Bachelors"
     case masters = "Masters"
     case phd = "PhD"
 }
 
 class Person {
-    var firstName: String, lastName: String, avatar: UIImage?, age: Int, address: String?, SSN: String, occupation: Occupation, educationDegree: EducationLevel
+    var firstName: String, lastName: String, avatar: UIImage, age: Int, address: String, SSN: String, occupation: Occupation, educationDegree: EducationLevel
     
-    init(firstName: String, lastName: String, avatar: UIImage? = #imageLiteral(resourceName: "dummy_profile_pic_2") , age: Int, address: String?, SSN: String, occupation: Occupation, education: EducationLevel){
+    init(firstName: String, lastName: String, avatar: UIImage = #imageLiteral(resourceName: "dummy_profile_pic_2") , age: Int, address: String, SSN: String, occupation: Occupation, education: EducationLevel){
         self.firstName = firstName
         self.lastName = lastName
         self.avatar = avatar

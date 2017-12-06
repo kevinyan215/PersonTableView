@@ -22,34 +22,49 @@ class PersonSignUpViewController: UIViewController {
     @IBAction func submitSignUpAction(_ sender: UIBarButtonItem) {
         print("submit action")
         //optional values are diff from value values, have to unwrap optionals if want to compare
-        
-        let firstName: String = firstNameLabel.text!
-        let lastName = lastNameLabel.text!
-        var age: Int? = Int(ageLabel.text!)
-        let address = addressLabel.text!
-        let ssn = ssnLabel.text!
-        let occupation = occupationLabel.text!
-        let education = educationLabel.text!
+        let firstName: String = firstNameLabel.text!, lastName = lastNameLabel.text!, age: Int? = Int(ageLabel.text!), address = addressLabel.text!, ssn = ssnLabel.text!, occupation = occupationLabel.text!, education = educationLabel.text!
         
         //Optional(Int) is Int, Optional(3) == 3
         guard firstName != "", lastName != "", age is Int, address != "", ssn != "", occupation != "", education != "" else {
             print("missing input somewhere orrrr invalid age")
             return
         }
-        
         performSegue(withIdentifier: "unwindToListVC", sender: nil)
-        
-        //alternative way..
-        //manually pop from navController.. but how to pass data back to destination controller?
-//        if let navController = navigationController {
-//            print("pop top view from nav controller")
-//            navController.popViewController(animated: true)
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("prepare for segue")
+        let firstName: String = firstNameLabel.text!, lastName = lastNameLabel.text!, age: Int? = Int(ageLabel.text!), address = addressLabel.text!, ssn = ssnLabel.text!, occupation = occupationLabel.text!, education = educationLabel.text!
+        let person = Person(firstName: firstName, lastName: lastName, age: age!, address: address, SSN: ssn, occupation: .engineer, education: .masters)
         
+        if let dest = segue.destination as? ListViewController {
+            print("prepare for segue - dest = ListVC")
+            //update data model and insert item onto table
+           
+            //updating destination VC model and table here... hmmm..
+//            dest.dataModel.insert(person: person)
+//            dest.tableView.beginUpdates()
+//            let indexPath = IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
+//            dest.tableView.insertRows(at: [indexPath] , with: .automatic)
+//            dest.tableView.endUpdates()
+            
+            let indexPath = IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
+            dest.bundleContainer["person"] = person
+            dest.bundleContainer["indexPath"] = indexPath
+        }
+    }
+}
+
+
+//alternative way.. @ when submit button pressed
+//manually pop from navController.. but how to pass data back to destination controller?
+//        if let navController = navigationController {
+//            print("pop top view from nav controller")
+//            navController.popViewController(animated: true)
+//        }
+
+
+//prepareForSegue checks
 //        print("""
 //            firstNameLabel: \(firstNameLabel.background) ,
 //            lastNameLabel: \(lastNameLabel.text) ,
@@ -59,28 +74,3 @@ class PersonSignUpViewController: UIViewController {
 //            ssnLabel: \(ssnLabel.text) ,
 //            addressLabel: \(addressLabel.text)
 //        """)
-        
-        let firstName: String = firstNameLabel.text!
-        let lastName = lastNameLabel.text!
-        let age: Int? = Int(ageLabel.text!)
-        let address = addressLabel.text!
-        let ssn = ssnLabel.text!
-        let occupation = occupationLabel.text!
-        let education = educationLabel.text!
-        
-        
-        let person = Person(firstName: firstName, lastName: lastName, age: age!, address: address, SSN: ssn, occupation: .unemployed, education: .none)
-        
-        if let dest = segue.destination as? ListViewController {
-            print("prepare for segue - sender = ListVC")
-            //update data model and insert item onto table
-            dest.dataModel.insert(person: person)
-            dest.tableView.beginUpdates()
-            let indexPath = IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
-            dest.tableView.insertRows(at: [indexPath] , with: .automatic)
-            dest.tableView.endUpdates()
-        }
-    }
-    
-    
-}
