@@ -48,7 +48,6 @@ class PersonSignUpViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        ////put info onto datamodel in VC
         print("prepare for segue")
         
 //        print("""
@@ -63,7 +62,7 @@ class PersonSignUpViewController: UIViewController {
         
         let firstName: String = firstNameLabel.text!
         let lastName = lastNameLabel.text!
-        var age: Int? = Int(ageLabel.text!)
+        let age: Int? = Int(ageLabel.text!)
         let address = addressLabel.text!
         let ssn = ssnLabel.text!
         let occupation = occupationLabel.text!
@@ -74,7 +73,12 @@ class PersonSignUpViewController: UIViewController {
         
         if let dest = segue.destination as? ListViewController {
             print("prepare for segue - sender = ListVC")
+            //update data model and insert item onto table
             dest.dataModel.insert(person: person)
+            dest.tableView.beginUpdates()
+            let indexPath = IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
+            dest.tableView.insertRows(at: [indexPath] , with: .automatic)
+            dest.tableView.endUpdates()
         }
     }
     

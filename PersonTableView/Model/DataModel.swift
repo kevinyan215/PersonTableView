@@ -32,5 +32,7 @@ class DataModel {
         personContainer.append(person)
     }
     
-    func remove(){}
+    func remove(at: Int){
+        personContainer.remove(at: at)
+    }
 }

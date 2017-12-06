@@ -10,13 +10,16 @@ import UIKit
 
 class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var createButton: UIBarButtonItem!
     var dataModel: DataModel = DataModel()
     var allowEditing = false
     
     @IBAction func editButtonActionSelected(_ sender: UIBarButtonItem) {
         allowEditing = !allowEditing
         tableView.setEditing(allowEditing, animated: true)
+        createButton.isEnabled = tableView.isEditing ? false : true
 //        tableView.allowsMultipleSelectionDuringEditing = true
+        
     }
     
     override func viewDidLoad() {
@@ -38,17 +41,11 @@ class ListViewController: UIViewController {
     @IBAction func unwindToListVC(segue: UIStoryboardSegue){
         print("unwindToListVC")
 //        reloadInputViews() //from UIResponder - refresh custom input view
-        tableView.reloadData()
-    }
-}
-extension ListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print("didSelectRowAt")
-        tableView.beginUpdates()
-        tableView.deleteRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
 //        tableView.reloadData()
     }
 }
+
+extension ListViewController: UITableViewDelegate {}
 
 extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -76,6 +73,21 @@ extension ListViewController: UITableViewDataSource {
         reusableCell.profilePicOutlet.image = dataModel.personContainer[indexPath.row].avatar
 //        print("cellForRowAt load nib good")
         return reusableCell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
+        print("commit")
+        //does insert need commit?
+        if editingStyle == .delete {
+            dataModel.remove(at: indexPath.row)
+            tableView.beginUpdates()
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.endUpdates()
+        }
     }
 }
 
