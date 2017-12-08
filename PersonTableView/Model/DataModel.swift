@@ -27,9 +27,9 @@ class DataModel {
 //        insert(person: person5)
 //        insert(person: person6)
         
-        coreDataManager.insertToPersonEntity(person: person1)
-        coreDataManager.insertToPersonEntity(person: person2)
-        coreDataManager.insertToPersonEntity(person: person3)
+//        coreDataManager.insertToPersonEntity(person: person1)
+//        coreDataManager.insertToPersonEntity(person: person2)
+//        coreDataManager.insertToPersonEntity(person: person3)
 //        coreDataManager.insertToPersonEntity(person: person4)
 //        coreDataManager.insertToPersonEntity(person: person5)
 //        coreDataManager.insertToPersonEntity(person: person6)
