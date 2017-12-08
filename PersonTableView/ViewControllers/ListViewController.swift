@@ -27,51 +27,6 @@ class ListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-//        let avatar: Data? = UIImagePNGRepresentation(#imageLiteral(resourceName: "dummy_profile_pic_2"))
-        //core data setup
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let managedObjectContext: NSManagedObjectContext = appDelegate.persistentContainer.viewContext
-        
-        
-        //Core Data insertion to Core Data
-//        let personCoreDataModel: NSManagedObject = NSEntityDescription.insertNewObject(forEntityName: "Person1", into: managedObjectContext)
-//        personCoreDataModel.setValue("Julio", forKey: "firstName")
-//        personCoreDataModel.setValue("Rodman", forKey: "lastName")
-//        personCoreDataModel.setValue(avatar!, forKey: "avatar")
-//        personCoreDataModel.setValue(23, forKey: "age")
-//        personCoreDataModel.setValue("83 Neptune", forKey: "address")
-//        personCoreDataModel.setValue("212-12-4322", forKey: "ssn")
-//        personCoreDataModel.setValue(Occupation.engineer.rawValue, forKey: "occupation")
-//        personCoreDataModel.setValue(EducationLevel.bachelors.rawValue, forKey: "educationDegree")
-//
-//        do {
-//            try managedObjectContext.save()
-//            print("Saved")
-//        } catch {
-//            print(error)
-//        }
-        
-        
-        //Core Data view/access info
-//        print("fetchRequest")
-//        let fetchRequest: NSFetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Person1")
-//        do {
-//            let results = try managedObjectContext.fetch(fetchRequest)
-//            for eachResults in results as! [NSManagedObject] {
-//                print(eachResults)
-//                if let firstName = eachResults.value(forKey: "firstName") as? String {
-//                    print(firstName)
-//                }
-//                if let lastName = eachResults.value(forKey: "lastName") as? String {
-//                    print(lastName)
-//                }
-//            }
-//        } catch {
-//            print(error)
-//        }
-
-        //Core Data deletion
-//        managedObjectContext.
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -86,7 +41,9 @@ class ListViewController: UIViewController {
         let indexPath = bundleContainer["indexPath"] as! IndexPath
         
         //update model and table with the new person
-        dataModel.insert(person: person)
+        CoreDataManager().insertToPersonEntity(person: person)
+        dataModel.reloadData()
+//        dataModel.insert(person: person)
         tableView.beginUpdates()
         tableView.insertRows(at: [indexPath] , with: .automatic)
         tableView.endUpdates()
@@ -155,11 +112,22 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         print("commit")
         //does insert need commit?
+//        if editingStyle == .delete {
+//            dataModel.remove(at: indexPath.row)
+//            tableView.beginUpdates()
+//            tableView.deleteRows(at: [indexPath], with: .automatic)
+//            tableView.endUpdates()
+//        }
+
+        //modified for Core Data
+        let person = dataModel.personContainer[indexPath.row]
         if editingStyle == .delete {
-            dataModel.remove(at: indexPath.row)
+            CoreDataManager().deleteFromPersonEntity(person: person)
+            dataModel.reloadData()
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
+           
         }
     }
 }

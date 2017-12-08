@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import CoreData
 
 enum Occupation: String {
     case doctor = "Doctor"
@@ -29,8 +30,8 @@ enum EducationLevel: String {
 
 class Person {
     var firstName: String, lastName: String, avatar: UIImage, age: Int, address: String, SSN: String, occupation: Occupation, educationDegree: EducationLevel
-    
-    init(firstName: String, lastName: String, avatar: UIImage = #imageLiteral(resourceName: "dummy_profile_pic_2") , age: Int, address: String, SSN: String, occupation: Occupation, education: EducationLevel){
+
+    init(firstName: String, lastName: String, avatar: UIImage = #imageLiteral(resourceName: "dummy_profile_pic_2") , age: Int, address: String, SSN: String, occupation: Occupation = .doctor, education: EducationLevel = .bachelors){
         self.firstName = firstName
         self.lastName = lastName
         self.avatar = avatar
@@ -41,3 +42,6 @@ class Person {
         self.educationDegree = education
     }
 }
+
+
+

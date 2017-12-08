@@ -10,6 +10,7 @@ import Foundation
 
 class DataModel {
     var personContainer: [Person] = []
+    let coreDataManager = CoreDataManager()
     
     init(){
         var person1 = Person(firstName: "Jimmy", lastName: "Butler", avatar: #imageLiteral(resourceName: "dummy_profile_pic_1"), age: 27, address: "33 Vancouver Blvd", SSN: "152-23-3212", occupation: .nbaPlayer, education: .bachelors)
@@ -19,12 +20,24 @@ class DataModel {
         var person5 = Person(firstName: "Mary", lastName: "leai", avatar: #imageLiteral(resourceName: "dummy_profile_pic_5"), age: 68, address: "49 Reia", SSN: "334-43-2654", occupation: .detective, education: .none)
         var person6 = Person(firstName: "Ashton", lastName: "Kutcher", age: 56, address: "21 Hollywood Blvd", SSN: "322-45-4542", occupation: .actor, education: .masters)
         
-        insert(person: person1)
-        insert(person: person2)
-        insert(person: person3)
-        insert(person: person4)
-        insert(person: person5)
-        insert(person: person6)
+//        insert(person: person1)
+//        insert(person: person2)
+//        insert(person: person3)
+//        insert(person: person4)
+//        insert(person: person5)
+//        insert(person: person6)
+        
+        coreDataManager.insertToPersonEntity(person: person1)
+        coreDataManager.insertToPersonEntity(person: person2)
+        coreDataManager.insertToPersonEntity(person: person3)
+//        coreDataManager.insertToPersonEntity(person: person4)
+//        coreDataManager.insertToPersonEntity(person: person5)
+//        coreDataManager.insertToPersonEntity(person: person6)
+
+//        coreDataManager.deleteFromPersonEntity(person: person1)
+//        coreDataManager.clearPersonEntity()
+        personContainer = coreDataManager.getPersonList()
+//        print(CoreDataManager().getPersonList())
     }
     
     func insert(person: Person){
@@ -37,5 +50,9 @@ class DataModel {
     
     func clear() {
         personContainer = []
+    }
+    
+    func reloadData() {
+        personContainer = CoreDataManager().getPersonList()
     }
 }

@@ -48,7 +48,7 @@ class PersonSignUpViewController: UIViewController {
 //            dest.tableView.insertRows(at: [indexPath] , with: .automatic)
 //            dest.tableView.endUpdates()
             
-            let indexPath = IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
+            let indexPath = dest.dataModel.personContainer.count-1 <= 0 ? IndexPath(row: 0, section: 0) : IndexPath(row: dest.dataModel.personContainer.count-1, section: 0)
             dest.bundleContainer["person"] = person
             dest.bundleContainer["indexPath"] = indexPath
         }
