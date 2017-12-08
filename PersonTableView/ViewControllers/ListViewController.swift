@@ -127,7 +127,6 @@ extension ListViewController: UITableViewDataSource {
             tableView.beginUpdates()
             tableView.deleteRows(at: [indexPath], with: .automatic)
             tableView.endUpdates()
-           
         }
     }
 }

@@ -35,7 +35,7 @@ class CoreDataManager {
         
         do {
             try getManagedObjectContext().save()
-            print("Saved")
+//            print("Saved")
         } catch {
             print(error)
         }
@@ -117,27 +117,3 @@ class CoreDataManager {
         return arr
     }
 }
-
-
-
-//                if let firstName = eachResults.value(forKey: "firstName") as? String {
-//                    print(firstName)
-//                }
-//                if let lastName = eachResults.value(forKey: "lastName") as? String {
-//                    print(lastName)
-//                }
-//                if let data = eachResults.value(forKey: "avatar") as? Data, let avatar = UIImage(data: data) {
-//                    print(data)
-//                    print(#imageLiteral(resourceName: "dummy_profile_pic_2"))
-//                }
-//                if let age = eachResults.value(forKey: "age") as? Int {
-//                    print(age)
-//                }
-//                if let address = eachResults.value(forKey: "address") as? String {
-//                }
-//                if let ssn = eachResults.value(forKey: "ssn") as? String {
-//                }
-//                if let occupation = eachResults.value(forKey: "occupation") as? String {
-//                }
-//                if let educationDegree = eachResults.value(forKey: "educationDegree") as? String {
-//                }
