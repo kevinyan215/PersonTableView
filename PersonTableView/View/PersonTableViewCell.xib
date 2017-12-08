@@ -18,10 +18,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="dummy_profile_pic_1" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-KQ-9ap">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dummy_profile_pic_1" translatesAutoresizingMaskIntoConstraints="NO" id="7dK-KQ-9ap">
                         <rect key="frame" x="0.0" y="0.0" width="74" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="75" id="TQE-st-DWi"/>
+                            <constraint firstAttribute="width" constant="74" id="TQE-st-DWi"/>
                             <constraint firstAttribute="height" constant="44" id="x6A-ju-mPQ"/>
                         </constraints>
                     </imageView>

@@ -34,4 +34,8 @@ class DataModel {
     func remove(at: Int){
         personContainer.remove(at: at)
     }
+    
+    func clear() {
+        personContainer = []
+    }
 }
