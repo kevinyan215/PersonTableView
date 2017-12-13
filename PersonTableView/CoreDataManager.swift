@@ -11,6 +11,10 @@ import CoreData
 import UIKit
 
 class CoreDataManager {
+    
+    func test() {
+//        NSFetchRequestResul
+    }
     func getManagedObjectContext() -> NSManagedObjectContext {
         //core data setup
         let appDelegate = UIApplication.shared.delegate as! AppDelegate

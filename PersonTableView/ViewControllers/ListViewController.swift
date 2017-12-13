@@ -112,12 +112,6 @@ extension ListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath){
         print("commit")
         //does insert need commit?
-//        if editingStyle == .delete {
-//            dataModel.remove(at: indexPath.row)
-//            tableView.beginUpdates()
-//            tableView.deleteRows(at: [indexPath], with: .automatic)
-//            tableView.endUpdates()
-//        }
 
         //modified for Core Data
         let person = dataModel.personContainer[indexPath.row]
